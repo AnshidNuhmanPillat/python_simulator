@@ -92,7 +92,9 @@ def find_golden_token():
 def check_g_pair(dist_g_m, d_th):
     """
     function to check whether the golden token in pursuit is in a pair with a silver token.
-    to do that, first the shortest distance between the golden token and the silver tokens are calculated and if the shortest distance is smaller than a threshold, then the token is in pair
+    to do that, first the shortest distance between the golden token and the silver tokens are calculated and if the shortest distance is smaller than a threshold, then the token is in pair.
+    Returns:
+    	pair_gs (int) : If its a pair then 1 else 0
     """
     dist = 100
     diff_t = -1
@@ -116,7 +118,9 @@ def check_g_pair(dist_g_m, d_th):
 def check_s_pair(dist_s, d_th):
     """
     function to check whether the silver token in pursuit is in a pair with a golden token.
-    to do that, first the shortest distance between the silver token and the golden tokens are calculated and if the shortest distance is smaller than a threshold, then the token is in pair
+    to do that, first the shortest distance between the silver token and the golden tokens are calculated and if the shortest distance is smaller than a threshold, then the token is in pair.
+    Returns:
+    	pair_sg (int) : If its a pair then 1 else 0
     """
     dist = 100
     diff_t = -1
