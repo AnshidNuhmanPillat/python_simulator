@@ -23,7 +23,7 @@ On Ubuntu, this can be accomplished by:
 ## Assignment
 -----------------------------
 
-To run one or more scripts in the simulator, use `run.py`, passing it the file names. 
+To run one or more scripts in the simulator, use `run.py`, passing it the file names.   
 
 In the code, I have implemented six function
 1. drive
@@ -32,29 +32,30 @@ In the code, I have implemented six function
 4. find_golden_token
 5. check_g_pair
 6. check_s_pair
+7. Main()
 
 **Functions**
 
-**1. drive**: 
-Function for setting a linear velocity
+**1. drive:**   
+Function for setting a linear velocity.  
 Args: 
 - speed (int): the speed of the wheels
 - seconds (int): the time interval
 
-set Motor1 speed and Motor2 speed same. 
+set Motor1 speed and Motor2 speed same.   
 run for set time.
 
-**2. turn**:
-Function for setting an angular velocity
+**2. turn:**  
+Function for setting an angular velocity.  
 Args: 
 - speed (int): the speed of the wheels
 - seconds (int): the time interval
 
-set Motor1 speed and Motor2 speed opposite to each other. 
+set Motor1 speed and Motor2 speed opposite to each other.   
 run for set time.
 
-**3. find_silver_token**
-Function to find the closest silver token
+**3. find_silver_token:**  
+Function to find the closest silver token.  
 Returns:
 - dist (float): distance of the closest silver token (-1 if no silver token is detected)
 - rot_y (float): angle between the robot and the silver token (-1 if no silver token is detected)
@@ -65,8 +66,8 @@ for tokens in view of robot
 - if distance is same as the initialised value return -1 and -1
 
 
-**4. find_golden_token**
-Function to find the closest golden token
+**4. find_golden_token:**  
+Function to find the closest golden token.  
 Returns:
 - dist (float): distance of the closest golden token (-1 if no golden token is detected)
 - rot_y (float): angle between the robot and the golden token (-1 if no golden token is detected)
@@ -77,7 +78,7 @@ for tokens in view of robot
 - if distance is same as the initialised value return -1 and -1
 
 
-**5. check_g_pair**
+**5. check_g_pair:**  
 Function to check whether the golden token in pursuit is in a pair with a silver token.
 To do that, first the shortest distance between the golden token and the silver tokens are calculated and if the shortest distance is smaller than a threshold, then the token is in pair.
 Arg: 
@@ -86,10 +87,10 @@ Arg:
 Returns:
 - pair_gs (int) : If its a pair then 1 else 0
 
-initialise the distance to hundred (a high value than the work area).
-initialise difference vector to -1, since we are taking absolute value later 
-initialise vector to track the number of tokens
-initialise the return variable
+initialise the distance to hundred (a high value than the work area).  
+initialise difference vector to -1, since we are taking absolute value later.  
+initialise vector to track the number of tokens.  
+initialise the return variable.  
 
 for tokens in view of robot
 - if token distance less than the initialised value and token type is silver get distance and orientation and return
@@ -97,7 +98,7 @@ for tokens in view of robot
    - else a temporary variable is created smilarly and if the temporary value is less than the difference, then difference is updated
 - if the difference is less than the threshold, the two tokens are considered are in pair and returned the variable 1 else 0 
 
-**6. check_s_pair**
+**6. check_s_pair:**  
 Function to check whether the silver token in pursuit is in a pair with a golden token.
 To do that, first the shortest distance between the silver token and the golden tokens are calculated and if the shortest distance is smaller than a threshold, then the token is in pair.
 Arg: 
@@ -117,9 +118,9 @@ for tokens in view of robot
    - else a temporary variable is created smilarly and if the temporary value is less than the difference, then difference is updated
 - if the difference is less than the threshold, the two tokens are considered are in pair and returned the variable 1 else 0
 
-
-initialising the variable to track whether all the tokens are in pair
-initialising the variable to track whether the silver token is droppped
+**Starting main function:**  
+initialising the variable to track whether all the tokens are in pair.  
+initialising the variable to track whether the silver token is droppped.  
 
 while true, called find_silver_token and find_golden_token function to get distance and orientation of silver and golden token
 - if the robot is detected then checked whether the silver token is in pair with a golden token; if yes then the variable is updated to track the pairing and then the robot is rotated. If the variable is above a limit, the loop is break 
@@ -143,6 +144,7 @@ When done, you can run the program with:
 $ python run.py assignment.py
 ```
 
+To improve the code, currently finding the tokens randomly, instead if the closest token is used the runtime can be reduced.
 
 Robot API
 ---------
